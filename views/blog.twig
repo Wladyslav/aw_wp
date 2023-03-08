@@ -1,0 +1,64 @@
+{{ function('get_header', '') }}
+
+<ol class="nav navbar-nav breadcrumbs" itemscope itemtype=http://schema.org/BreadcrumbList>
+    <li itemprop=itemListElement itemscope itemtype=http://schema.org/ListItem><a href=/ itemprop=item><span itemprop=name>Agencja Wrocławska</span>
+            <meta itemprop=position content="1">
+        </a>></li>
+    <li class=active itemprop=itemListElement itemscope itemtype=http://schema.org/ListItem><span itemprop=name>Blog</span>
+        <meta itemprop=position content="2">
+    </li>
+</ol>
+<main id=content>
+    <section class="sec-padding blog-page">
+        <h1 class='blog-header txt-XXL f-w700 txt-underline txt-red'>Blog</h1>
+        <div class=categories-cnt>
+            <ul class=categories-list-all></ul>
+        </div>
+        <div class=container>
+            <div class=row>
+                <ul class="news-list with_grid">
+                    {% for p in posts %}
+                    <li>
+                        {% if p.meta('show_image') == 1 %}<img data-src={{ p.meta('blog_image') }} class=lazyload>{% endif %}
+                        <div class=without-img-cnt>
+                            <ul class=categories></ul>
+                            <a href={{p.path}}>
+                                <h3>{{p.post_title}}</h3>
+                                <div class=art-summary>{{ p.meta('short_desc') }}</div>
+                            </a>
+                            <div class=list-art-footer><span class=list-art-date>{{function('get_the_date', 'd.m.Y', p)}}</span>
+                                <span class=list-art-authorname>| &nbsp;{{p.author.name}}</span>
+                                <img class="lazyload art-author-img" data-src={{ p.author.meta('profil_picture') }}>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <nav aria-label="Page navigation" class="pagination-cnt">
+                    {% if paged-1 >= 1 %}
+                        {% if paged-1 == 1 %}
+                        <a class="page-link prev" href="/blog/" rel="next"></a>
+                        {% else %}
+                        <a class="page-link prev" href="/blog/page/{{paged-1}}" rel="next"></a>
+                        {% endif %}
+                    {% endif %}
+                    <div class="pageof">
+                        Strona <span class="pageno">{{paged}}</span> z <span class="pageno">{{max_pages}}</span>
+                    </div>
+                    {% if max_pages >= paged+1 %}
+                    <a class="page-link next" href="/blog/page/{{paged+1}}/" rel="next"></a>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+    </section>
+</main><svg class="svg">
+    <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox">
+        <path d="M1 0S.734.31.0.148v.733s.353.254 1 .02V0" />
+    </clipPath>
+</svg><svg class="svg">
+    <clipPath id="my-clip-path2" clipPathUnits="objectBoundingBox">
+        <path d="M1 .171S.95.13.857.177C.711.25.447.413.0.316v.721s.353.249 1 .019V.171" />
+    </clipPath>
+</svg>
+{{ function('get_footer', '') }}

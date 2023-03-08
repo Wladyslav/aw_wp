@@ -1,0 +1,21 @@
+h1 {
+  font-size: $h1-size;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+h2 {
+  font-size: $h2-size;
+  line-height: 1.75rem;
+}
+h3 {
+  font-size: $h3-size;
+  line-height: 2rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+.main-padding {
+  padding-top: 2rem;
+}

@@ -1,0 +1,36 @@
+{{ function('get_header', '') }}
+
+<ol class="nav navbar-nav breadcrumbs" itemscope itemtype=http://schema.org/BreadcrumbList>
+        <li itemprop=itemListElement itemscope itemtype=http://schema.org/ListItem><a href=/ itemprop=item><span itemprop=name>Agencja Wrocławska</span>
+                <meta itemprop=position content="1">
+            </a>></li>
+        <li itemprop=itemListElement itemscope itemtype=http://schema.org/ListItem><a href=/slownik/ itemprop=item><span itemprop=name>Słownik SEO</span>
+                <meta itemprop=position content="2">
+            </a>></li>
+        <li class=active itemprop=itemListElement itemscope itemtype=http://schema.org/ListItem><span itemprop=name>{{ page.slowo }}</span>
+            <meta itemprop=position content="3">
+        </li>
+    </ol>
+    <main id=content>
+        <section class='sc-banner-center-noimg slownik-post'>
+            <div class=center-banner-cnt><img data-src=/uploads/group-120.svg class='lazyload banner-bg-img lmode'>
+                <img data-src=/uploads/seo3.svg class='lazyload dmode banner-bg-img'>
+                <div class='on-banner-content sec-padding'>
+                    <h1 class='txt-red f-w700 txt-underline txt-XL'>{{ page.slowo }}</h1>
+                    
+                    {{ page.content }}
+                    
+                    <a class='cta-button cta-back' href=/slownik />Powrót do słownika</a>
+                </div>
+            </div>
+        </section>
+    </main><svg class="svg">
+        <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox">
+            <path d="M1 0S.734.31.0.148v.733s.353.254 1 .02V0" />
+        </clipPath>
+    </svg><svg class="svg">
+        <clipPath id="my-clip-path2" clipPathUnits="objectBoundingBox">
+            <path d="M1 .171S.95.13.857.177C.711.25.447.413.0.316v.721s.353.249 1 .019V.171" />
+        </clipPath>
+    </svg>
+{{ function('get_footer', '') }}

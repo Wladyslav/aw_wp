@@ -1,0 +1,123 @@
+.hero-home {
+  background: linear-gradient(
+    270.75deg,
+    rgba(255, 209, 208, 0.49) -1.64%,
+    rgba(244, 244, 244, 0) 82.2%
+  );
+}
+.home-h1 {
+  margin-bottom: 2.75rem;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 22px;
+    bottom: -22px;
+    left: -17px;
+    background: url(/wp-content/uploads/2023/03/Vector-89.svg) no-repeat center;
+  }
+}
+
+.intro_header-img {
+  margin-left: 10px;
+  position: relative;
+  .stat-bubble {
+    width: 151px;
+    height: 151px;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .stat-bubble1 {
+    top: 0;
+    left: 6%;
+    background: $red;
+  }
+  .stat-bubble2 {
+    background: #71b7e8;
+    width: 111px;
+    height: 111px;
+    top: 30%;
+    left: 61%;
+  }
+  .stat-bubble3 {
+    background: #bfe2bf;
+    width: 111px;
+    height: 111px;
+    bottom: 24%;
+    left: 10%;
+  }
+}
+.search-ends {
+  .wrapper-search-ends-button {
+    margin-bottom: 2rem;
+    .search-ends-button {
+      border-bottom: 1px solid $red;
+      padding: 1.5rem 0;
+      .search-ends-button-number {
+        color: $red;
+        font-size: 1.25rem;
+        margin-left: 1rem;
+      }
+      .search-ends-button-name {
+        font-size: 1.5rem;
+        padding-left: 2rem;
+      }
+      .search-ends-button-description {
+        display: none;
+      }
+    }
+  }
+  .search-ends-desc-wrapper {
+    padding: 1.5rem;
+    box-shadow: 0px -30px 95px -40px $red;
+    margin: 2rem 0 1rem 0;
+    h3 {
+      font-weight: 600;
+    }
+  }
+
+  .search-ends-image {
+    order: -1;
+  }
+  .search-ends-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    background-color: $dark;
+    color: white;
+    text-align: center;
+    & > div {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.ready-to-grow {
+  .ready-to-grow-description {
+    margin-top: 1.75rem;
+  }
+}
+
+.solved-section {
+  .solved-section-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    .solved-section-tile {
+      max-width: 565px;
+      padding: 1.5rem;
+      border: 0.25px solid #f63d37;
+      box-shadow: 0px 0px 32px rgba(43, 39, 39, 0.04),
+        0px 0px 24px rgba(43, 39, 39, 0.07), 0px 0px 6px rgba(43, 39, 39, 0.04);
+      border-radius: 4px;
+    }
+  }
+}

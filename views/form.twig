@@ -1,0 +1,34 @@
+<div class="form-header">Zamów bezpłatną wycenę w 24h!</div>
+<div id="my-form-status"></div>
+<form id="{{option.form_popup.form_id}}" action="{{option.form_popup.endpoint}}" method="post">
+    {% for p in option.form_popup.pola %}
+        {% if p.type == 'email' or p.type == 'text' or p.type == 'phone' or p.type == 'url' %}
+        <div class="input-cnt">
+            <input {% if p.required %}required{% endif %} name="{{p.id}}" type="{{p.type}}" id="{{p.id}}" placeholder="{{p.placeholder}}">
+            <label for="{{p.id}}">{{p.opis}}</label>
+        </div>
+        {% endif %}
+    
+        {% if p.type == 'radio' %}
+        <div>
+            <span class="radio-cnt-title">{{p.opis}}</span>
+            {% set radio_id = p.id %}
+            {% for opt in p.radio_options %}
+            <div class="form-radio"><input type="radio" id="{{opt.id}}" name="{{radio_id}}" value="{{opt.wartosc}}"><label for="{{opt.id}}">{{opt.opis}}</label></div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    
+        {% if p.type == 'submit' %}
+        <button type="submit">{{p.opis}}</button>
+        {% endif %} 
+    
+        {% if p.type == 'accept' %}
+        <div class="{{p.id}}">
+            <input id="{{p.id}}" type="checkbox" required="" name="{{p.id}}" value="accept">
+            <label for="{{p.id}}">{{p.accept_text}}</label>
+        </div>
+        {% endif %} 
+    
+    {% endfor %}
+</form>

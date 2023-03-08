@@ -1,0 +1,25 @@
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  // overflow: visible;
+}
+
+// @media (min-width: 1920px) {
+//   html {
+//     font-size: 120%;
+//   }
+// }
+@media (min-width: 2560px) {
+  html {
+    // font-size: 140%;
+    font-size: 120%;
+  }
+}
+
+@media (min-width: 3840px) {
+  html {
+    // font-size: 160%;
+    font-size: 140%;
+  }
+}
