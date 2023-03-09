@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<html {{ function('language_attributes', '') }} >   
+
+<head>
+   
+    <meta charset="{{ function('bloginfo', 'charset') }}">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta name=p:domain_verify content="f3a5ba5230529067900740a76fe095af">
+
+    <link rel=preconnect href=https://fonts.gstatic.com>
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Agencja SEO SEM - Marketing internetowy w Google | Agencja Wrocławska",
+            "url": "/",
+            "logo": "/uploads/logo-aw-black.png",
+            "legalName": "Agencja Wrocławska Sp. z o.o.",
+            "sameAs": ["https://www.facebook.com/agencjawroclawskaseo", "https://www.linkedin.com/company/agencja-wroc%C5%82awska/"]
+        }
+
+    </script>
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Agencja SEO SEM - Marketing internetowy w Google | Agencja Wrocławska",
+            "url": "/",
+            "sameAs": ["https://www.facebook.com/agencjawroclawskaseo", "https://www.linkedin.com/company/agencja-wroc%C5%82awska/"]
+        }
+
+    </script>
+    {{ function('wp_head', '') }}
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NB3BZ4S');</script>
+<!-- End Google Tag Manager -->
+    
+    {% if is_admin %}
+    <style>
+        @media (min-width: 1600px) {
+            main {
+                margin-top: 122px;
+            }
+            header {
+                top: 33px;
+            }
+            .nav.breadcrumbs {
+                margin-top: 3.5rem;   
+            }
+        }
+    </style>
+    {% endif %}
+</head>
+
+
+<body class="{{body_class}}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB3BZ4S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    {{ function('wp_body_open', '') }}
+    <header class=sec-padding>
+        <div class=logo-cnt><a href=/ />
+            <img class=lmode src={{option.header_logo_dark}} alt="Agencja SEO">
+            <img class=dmode src={{option.header_logo_light}} alt="Agencja SEO"></a>
+        </div>
+        <div class=right-side>
+            <div class=upper-row><a class=tel-link href=tel:+48{{option.phone|replace({' ': ''})}}>{{option.phone}}</a>
+                <span class=mail-link >{{option.email}}</span>
+                <ul class=header-social-list>
+                    <li><a rel=nofollow target=_blank href={{option.linkedin}} /><img class=lmode src=/uploads/linkedin-in.svg>
+                        <img class=dmode src=/uploads/linkedin-in-white.svg></a>
+                    </li>
+                    <li><a rel=nofollow target=_blank href={{option.facebook}}><img class=lmode src=/uploads/facebook-f.svg>
+                            <img class=dmode src=/uploads/facebook-f-white.svg></a></li>
+                    <li><a rel=nofollow target=_blank href={{option.tiktok}}><img class=lmode src=/uploads/tik-tok-logo.svg>
+                            <img class=dmode src=/uploads/tik-tok-logo-white.svg></a></li>
+                </ul>
+            </div>
+            <nav class=below-row>
+                <ul class=main-menu>
+
+                    {% for item in menu_top.items %}
+                    <li class="{% if item.children %}parent{% endif %} {% if item.current %}active{% endif %}">
+                        <a href="{{ item.link }}">{{ item.title }}</a>
+                        {% if item.children %}
+                            <ul class="sub-menu">
+                                {% for child in item.children %}
+                                    <li {% if child.current %}class="active"{% endif %}>
+                                        <a href="{{ child.link }}">{{ child.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div><button class=menu-btn-cnt>
+            <span></span>
+            <span></span>
+            <span></span></button>
+        <div class=darmkode-input><input id=darkmode type=checkbox name=darkmode value=true>
+            <label for=darkmode></label>
+        </div>
+    </header>

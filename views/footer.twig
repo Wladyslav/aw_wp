@@ -1,0 +1,134 @@
+    <footer class=sec-padding>
+        <div class=first-row>
+            <div class=first-col><a href=/ /><img class='lmode footer-logo' src={{site_url}}/uploads/logo-aw-black.svg>
+                <img class='dmode footer-logo' src={{site_url}}/uploads/logo-aw-white.svg></a>
+                <div class=footer-address>
+                    <p>{{option.adres}}</p>
+                    <p>{{option.email}}</p>
+                </div>
+            </div>
+            <div class=second-col>
+                <ul>
+                    {% for item in menu_footer_1.items %}
+                    <li><a href={{ item.link }} >{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class=third-col>
+                <ul>
+                    {% for item in menu_footer_2.items %}
+                    <li><a href={{ item.link }} >{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class=fourth-col>
+                
+                <ul class=footer-tools-list></ul>
+            </div>
+        </div>
+        <div class=second-row>
+            <p>{{option.footer}}</p>
+        </div>
+    </footer>
+    <div data-modalname=modal1 class=modal-quote-outer><a href=# class=button-close-modal></a>
+        <div class=modal-wrapper>
+            {% include "form.twig" %}
+        </div>
+    </div>
+    <script>
+        var mform = document.getElementById("mcontactform");
+        if (typeof mform != "undefined" && mform != null) {
+            async function handleSubmit(e) {
+                e.preventDefault();
+                var t = document.getElementById("mmy-form-status"),
+                    n = new FormData(e.target);
+                fetch(e.target.action, {
+                    method: form.method,
+                    body: n,
+                    headers: {
+                        Accept: "application/json"
+                    }
+                }).then(e => {
+                    t.innerHTML = "Dziękujemy skontaktujemy się z Tobą niebawem.", form.reset()
+                }).catch(e => {
+                    t.innerHTML = "Oops! Nie udało się wysłać formularza!"
+                })
+            }
+            mform.addEventListener("submit", handleSubmit)
+        }
+
+        var form = document.getElementById("contactform");
+        if (typeof form != "undefined" && form != null) {
+            async function handleSubmit(e) {
+                e.preventDefault();
+                var t = document.getElementById("my-form-status"),
+                    n = new FormData(e.target);
+                fetch(e.target.action, {
+                    method: form.method,
+                    body: n,
+                    headers: {
+                        Accept: "application/json"
+                    }
+                }).then(e => {
+                    t.innerHTML = "Dziękujemy skontaktujemy się z Tobą niebawem.", form.reset()
+                }).catch(e => {
+                    t.innerHTML = "Oops! Nie udało się wysłać formularza!"
+                })
+            }
+            form.addEventListener("submit", handleSubmit)
+        }
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var e, t, s, n = document.querySelectorAll(".open-modal-quote");
+            if (n.length > 0)
+                for (e = 0; e < n.length; e++) n[e].addEventListener("click", function(e) {
+                    e.preventDefault();
+                    var t = this.dataset.modaltarget,
+                        t = "[data-modalname='" + t + "']";
+                    document.querySelector(t).classList.toggle("modal-active")
+                });
+            document.addEventListener("click", function(e) {
+                (e.target.matches(".button-close-modal") || !e.target.closest(".modal-wrapper") && !e.target.closest(".open-modal-quote")) && o()
+            }, !1);
+
+            function o() {
+                var e, t = document.querySelectorAll(".modal-quote-outer");
+                if (t)
+                    for (e = 0; e < t.length; e++) t[e].classList.remove("modal-active")
+            }
+            if (t = document.querySelectorAll("nav .parent > a"), t.length > 0)
+                for (e = 0; e < t.length; e++) t[e].addEventListener("click", function(e) {
+                    e.preventDefault(), this.parentNode.classList.toggle("mobile-sub-open")
+                });
+            s = document.querySelector(".menu-btn-cnt"), s.addEventListener("click", function(e) {
+                e.preventDefault(), document.querySelector("header").classList.toggle("menu-mobile-opened")
+            })
+        })
+
+    </script>
+    <script>
+    var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+    {{ function('wp_footer', '') }}
+</body>
+
+</html>

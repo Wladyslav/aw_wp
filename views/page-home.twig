@@ -1,0 +1,173 @@
+{{ function('get_header', '') }}
+
+<main id='content'>
+        <section class='hero-home'>
+            <div class='container main-padding'>
+                <div class="row">
+                <div class='col-md-6'>
+                    <h1 class="home-h1" >{{f.home_hero_title}}</h1>
+                    <p class="hero-description">{{f.home_hero_description}}</p>
+                    
+                </div>
+                <div class='col-md-6'>
+                    <div class="intro_header-img">
+                        <img loading="lazy" width="731" height="561" src="https://www.webfx.com/wp-content/uploads/2023/03/homepage-featured-image.webp" class="featured-image" alt="" srcset="https://www.webfx.com/wp-content/uploads/2023/03/homepage-featured-image.webp 731w, https://www.webfx.com/wp-content/uploads/2023/03/homepage-featured-image-300x230.webp 300w" sizes="(max-width: 731px) 100vw, 731px">
+                        <div class="stat-bubble stat-bubble1">
+                        <span class="value">590</span>
+                        <h5 class="title">Klientów</h5>
+                        </div>
+                        <div class="stat-bubble stat-bubble2">
+                        <span class="value">3890</span>
+                        <h5 class="title">Średni wzrost</h5>
+                        </div>
+                        <div class="stat-bubble stat-bubble3">
+                        <span class="value">80</span>
+                        <h5 class="title">ekspertów</h5>
+                        </div>                        
+                        </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section class='sec-padding '>
+        {% for partner in f.home_partners %}
+            <img style="height:50px" src="{{partner.url}}" alt=""/>
+        {% endfor %}
+        </section>
+        <section class='search-ends' >
+            <div class="container">
+                    <h2 class='header-template'>{{f.twoje_poszukiwania.naglowek_twoje_poszukiwania}}</h2>
+                    <div class="wrapper-search-ends-button">
+                    
+                    {% for key, przycisk in f.twoje_poszukiwania.twoje_poszukiwania_przyciski %}
+                    <div class="search-ends-button">
+                        <span class="search-ends-button-number">0{{key+1}}</span>
+                        <span class="search-ends-button-name">{{przycisk.twoje_poszukiwania_przycisk}}</span>            
+                        <p class="search-ends-button-description">{{przycisk.twoje_poszukiwania_podpis}}</p>
+                    </div>            
+                    {% endfor %}
+
+                    </div>
+                    <div class="row">
+                    <div class='col-md-6 '>
+                        <div class="search-ends-desc-wrapper">
+                        <{{f.twoje_poszukiwania.twoje_poszukiwania_tag_naglowka}}>{{f.twoje_poszukiwania.twoje_poszukiwania_opis_naglowek}}</{{f.twoje_poszukiwania.twoje_poszukiwania_tag_naglowka}}>
+                        <p>{{f.twoje_poszukiwania.twoje_poszukiwania_opis}}</p>
+                        <span>{% include '/views-parts/ctr-link.twig' with {'ctr_link':f.twoje_poszukiwania.twoje_poszukiwania_popup} %}</span>
+                        </div>
+                    </div>
+                    <div class='col-md-6 search-ends-image'><img style="height:200px" src="{{f.twoje_poszukiwania.twoje_poszukiwania_image}}"/></div>
+                </div>
+                
+                    <div class="search-ends-form">
+                        <div>Startujemy? Wznieś swój biznes na wyższy poziom marketingu z Agencją Wrocławską</div>
+                        {{f.twoje_poszukiwania.twoje_poszukiwania_formularz}}
+                        <button class="main-button">Otrzymaj propozycję</button>
+                    </div>
+                
+            </div>
+        </section>
+        <section class='ready-to-grow'> 
+            <div class="container">
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <{{f.seo_before_after.naglowek_case_study_tag}}>{{f.seo_before_after.naglowek_case_study}}</{{f.seo_before_after.naglowek_case_study_tag}}>    
+                        <p class="ready-to-grow-description">{{f.seo_before_after.case_study_opis}}</p>
+                    </div>
+                    <div class='col-md-6'></div>
+                </div>
+            </div>
+        </section> 
+        <section class='solved-section'>
+            <div class="container">
+                <div class="row">
+                    <div class='col-md-6'><{{f.oferta_home.oferta_tag}}>{{f.oferta_home.oferta_naglowek}}</{{f.oferta_home.oferta_tag}}></div>
+                    <div class='col-md-6'><p>{{f.oferta_home.oferta_opis}}</p></div>
+            </div>
+             
+            <div class=" solved-section-tiles">
+                
+                {% for oferta in f.oferta_home.oferta_lista %}
+                <article class=" solved-section-tile">
+                    <h3>{{oferta.oferta_lista_naglowek}}</h3>
+                    <p>{{oferta.oferta_lista_opis}}</p>
+                    {% set link = oferta.oferta_lista_link %}
+                    {% include '/views-parts/ctr-link.twig' with {'ctr_link':link} %}
+                </article>
+                {% endfor %}
+                
+                
+            </div>
+            </div>
+
+        </section>
+        <section class='sec-padding'>
+            <div>
+                <{{f.cta_adres_www.cta_adres_www_tag}}>{{f.cta_adres_www.cta_adres_www_naglowek}}</{{f.cta_adres_www.cta_adres_www_tag}}>
+                <p>{{f.cta_adres_www.cta_adres_www_opis}}</p>
+            </div>
+        </section>
+        <section class='sec-padding'>
+            <div>
+                <{{f.home_klienci.home_klienci_tag}}>{{f.home_klienci.home_klienci_naglowek}}</{{f.home_klienci.home_klienci_tag}}>
+                <p>{{f.home_klienci.home_klienci_opis}}</p>
+            </div>
+            <div>
+                {% for client in f.home_klienci.home_klienci_loga %}
+                    <img height="20px" src="{{client.url}}" alt="">
+                {% endfor %}
+            </div>
+        </section>
+        <section class='sec-padding'>
+            <{{f.home_opinie.home_opinie_tag}}>{{f.home_opinie.home_opinie_naglowek}}</{{f.home_opinie.home_opinie_tag}}>
+            <div>
+                {% for single_opinion in f.home_opinie.home_opinia %}
+                    <article>
+                        <img height="50px" src="{{single_opinion.home_opinia_logo}}" alt="">
+                        <p>{{single_opinion.home_opinia_tekst}}</p>
+                        <span>{{single_opinion.home_opinia_autor}}</span>
+                    </article>
+                {% endfor %}
+            </div>
+        </section>
+        <section class='sec-padding'>
+            <div>
+                <{{f.home_webinar.home_webinar_tag}}>{{f.home_webinar.home_webinar_naglowek}}</{{f.home_webinar.home_webinar_tag}}>
+                <p>{{f.home_webinar.home_webinar_opis}}</p>
+                <div>{{f.home_webinar.home_webinar_form}}</div>
+            </div>
+            <div>
+                <img height="200px" src="{{f.home_webinar.home_webinar_obraz}}" alt="">
+            </div>
+        </section>
+        
+        <section class='sec-padding sc-front-news'>
+            <h3 class='header-template front-news-header'><span class='f-w900 txt-underline txt-red txt-L'>Aktualności</span></h3>
+            <ul class="news-list cnt-visibility">
+                {% for p in posts %}
+                <li>
+                    <ul class=categories></ul>
+                    <a href={{p.path}}>
+                        <h3>{{p.post_title}}</h3>
+                        <div class=art-summary>{{p.short_desc}}</div>
+                    </a>
+                    <div class='list-art-footer'><span class='list-art-date'>{{function('get_the_date', 'd.m.Y', p)}}</span>
+                        <span class='list-art-authorname'>| &nbsp; {{p.author.name}}</span>
+                        <img class="lazyload art-author-img" data-src={{ p.author.meta('profil_picture') }}>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class=front-news-more-cnt><a class=front-news-more href=/blog />WIĘCEJ AKTUALNOŚCI</a></div>
+        </section>
+    </main><svg class="svg">
+        <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox">
+            <path d="M1 0S.734.31.0.148v.733s.353.254 1 .02V0" />
+        </clipPath>
+    </svg><svg class="svg">
+        <clipPath id="my-clip-path2" clipPathUnits="objectBoundingBox">
+            <path d="M1 .171S.95.13.857.177C.711.25.447.413.0.316v.721s.353.249 1 .019V.171" />
+        </clipPath>
+    </svg>
+
+{{ function('get_footer', '') }}

@@ -1,0 +1,47 @@
+/*!
+Theme Name: AgencjaWroclawska
+Theme URI: http://underscores.me/
+Author: AgencjaWroclawska
+Author URI: https://agencjawroclawska.pl
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: aw
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+AgencjaWroclawska is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+#contactform .form-radio label + label:before,
+#mcontactform .form-radio label + label:before {
+    content: '';
+    position: absolute;
+    top: 0.125rem;
+    left: 0;
+    height: 1.25rem;
+    width: 1.25rem;
+    background: #fff;
+    border: 0.0625rem solid #000;
+    border-radius: 50%;
+}
+
+#contactform .form-radio label:first-child {
+    display: none;
+}
+
+.wpcf7-response-output {
+    padding: 10px !important;
+    font-size: 13px;
+    border-color: #f63d37 !important;
+    border-radius: 10px;
+}
