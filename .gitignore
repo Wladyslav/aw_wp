@@ -1,2 +1,7 @@
-html/node_modules/
+!html/node_modules/
+
+html/node_modules/*
+!html/node_modules/jquery/
+!html/node_modules/bootstrap/
+
 aw_wp/
